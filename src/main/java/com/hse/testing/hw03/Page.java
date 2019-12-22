@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class Page {
-    private static final int TIMEOUT = 2;
+    private static final int TIMEOUT = 5;
     private final WebDriver driver;
     private final WebDriverWait wait;
 
@@ -41,7 +41,7 @@ public class Page {
 
     public void toIssues() {
         String issuesPageClass = "ring-menu__item__i";
-        toHome();
+        wait.until(ExpectedConditions.elementToBeClickable(By.className(issuesPageClass)));
         elementsByClass(issuesPageClass).get(0).click();
     }
 }
